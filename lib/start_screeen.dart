@@ -14,6 +14,7 @@ class StartScreen extends StatelessWidget {
           Image.asset(
             "assets/images/quiz-logo.png",
             width: 240,
+            color: Color.fromARGB(140, 255, 255, 255),
           ),
           const SizedBox(
             height: 20,
@@ -21,12 +22,12 @@ class StartScreen extends StatelessWidget {
           const Text(
             "Flutter Quize App",
             style: TextStyle(
-              color: Colors.white,
+              color: Color.fromARGB(181, 255, 255, 255),
               fontSize: 20,
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 40,
           ),
           OutlinedButton.icon(
             onPressed: () {},
@@ -34,7 +35,7 @@ class StartScreen extends StatelessWidget {
               "Start the Quiz",
               style: TextStyle(fontSize: 19),
             ),
-            icon: const Icon(Icons.trending_neutral_sharp),
+            icon: const Icon(Icons.quiz),
             style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.white, elevation: 1),
           )
