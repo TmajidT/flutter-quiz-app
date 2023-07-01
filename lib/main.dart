@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'GraidientCintainer.dart';
+import 'start_screeen.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,15 +11,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: GraidientContainer(
-          [
-            Color.fromRGBO(82, 209, 240, 1),
-            //Color.fromRGBO(27, 164, 188, 1),
-            Color.fromRGBO(38, 192, 110, 1)
-          ],
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 163, 139, 220),
+                Color.fromARGB(255, 8, 94, 97),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: StartScreen(),
         ),
       ),
     );
