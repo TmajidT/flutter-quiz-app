@@ -3,6 +3,7 @@ import 'package:quiz/data/questions.dart';
 
 import 'start_screeen.dart';
 import 'questions.screen.dart';
+import 'results_screen.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -26,7 +27,7 @@ class _QuizState extends State<Quiz> {
 
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        activeScreen = "start-screen";
+        activeScreen = "result-screen";
         selectedAnswers = [];
       });
     }
@@ -34,26 +35,30 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(BuildContext context) {
+    Widget screenWidget = StartScreen(switchScreen);
+
+    if (activeScreen == "start-screen") {
+      screenWidget = StartScreen(switchScreen);
+    } else if (activeScreen == "question-screen") {
+      screenWidget = QuestionScreen(onSelecAnswer: chooseAnswer);
+    } else
+      screenWidget = ResultScreen();
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 163, 139, 220),
-                Color.fromARGB(255, 8, 94, 97),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromARGB(255, 163, 139, 220),
+                  Color.fromARGB(255, 8, 94, 97),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
             ),
-          ),
-          child: activeScreen == "start-screen"
-              ? StartScreen(switchScreen)
-              : QuestionScreen(
-                  onSelecAnswer: chooseAnswer,
-                ),
-        ),
+            child: screenWidget),
       ),
     );
   }
