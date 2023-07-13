@@ -39,11 +39,11 @@ class ResultScreen extends StatelessWidget {
             Text(
                 "you answer $numCorrectQuestions questions out of $numTotalQuestions"),
             const SizedBox(
-              height: 25,
+              height: 10,
             ),
             QuestionSummary(summaryData: summaryData),
             const SizedBox(
-              height: 25,
+              height: 10,
             ),
             TextButton(onPressed: () {}, child: const Text("Restart Quiz"))
           ],
